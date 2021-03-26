@@ -42,6 +42,10 @@ def chebyshev_distance(p1: List[float], p2: List[float]) -> float:
 
 
 def distance_between(a: AgentState, b: AgentState, distance="euclidean") -> Optional[float]:
+    """
+    Returns the specified distance between two agents. The parameter `distance` must be one
+    of 'euclidean', 'euclidean_sq', 'manhattan' or 'chebyshev'.
+    """
     if a.position is None:
         raise AgentFieldError(a.agent_id, "position", "cannot be None")
     if b.position is None:
@@ -62,11 +66,23 @@ def distance_between(a: AgentState, b: AgentState, distance="euclidean") -> Opti
 
 
 def normalize_vector(vec: List[float]) -> List[float]:
+    """
+    Returns a copy of the vector `vec` with unit (Euclidean) length.
+    """
     magnitude = math.sqrt(sum(v * v for v in vec))
     return [v / magnitude for v in vec]
 
 
-def random_position(topology: Topology, z_plane=False):
+def random_position(topology: Topology, z_plane=False) -> List[float]:
+    """
+    Returns a random position vector within the bounds specified in `topology`. Unless
+    `z_plane` is set to `True`, the generated position will be in the x-y plane.
+
+    Args:
+        topology: the `context.globals()["topology"]` value. 
+        z_plane: if True, will generate a position with a z-axis component. If False,
+        the z-axis component will be zero.
+    """
     xpos = int(random.uniform(topology.x_bounds[0], topology.x_bounds[1]))
     ypos = int(random.uniform(topology.y_bounds[0], topology.y_bounds[1]))
     zpos = 0

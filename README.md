@@ -11,7 +11,7 @@ The repo is split between [JavaScript functions](https://github.com/hashintel/st
 
 ### JavaScript
 
-To contribute to the JavaScript standar library, please install 
+To contribute to the JavaScript standard library, please install 
 [npm](https://www.npmjs.com/get-npm), and run `npm install` at the base directory of 
 this repo to get set up.
 
