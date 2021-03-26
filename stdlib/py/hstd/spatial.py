@@ -79,7 +79,7 @@ def random_position(topology: Topology, z_plane=False) -> List[float]:
     `z_plane` is set to `True`, the generated position will be in the x-y plane.
 
     Args:
-        topology: the `context.globals()["topology"]` value. 
+        topology: the `context.globals()["topology"]` value.
         z_plane: if True, will generate a position with a z-axis component. If False,
         the z-axis component will be zero.
     """
